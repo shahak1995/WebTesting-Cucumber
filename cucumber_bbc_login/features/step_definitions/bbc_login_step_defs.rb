@@ -39,3 +39,11 @@ end
 Then("I receive an error message saying passwords invalid") do
   expect(@bbc_site.bbc_login_page.error_message_box).to eq @bbc_site.bbc_login_page.invalid_password_error
 end
+
+Given("I input a invalid password with only numbers") do
+  @bbc_site.bbc_login_page.fill_in_password_field('12345678')
+end
+
+Then("I receive a message saying password is invalid put letters") do
+  expect(@bbc_site.bbc_login_page.error_message_box).to eq @bbc_site.bbc_login_page.invalid_password_error_two
+end
