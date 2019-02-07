@@ -14,12 +14,12 @@ Feature: BBC Login
     When I try to login
     Then I receive an error for the password being short
 
-  Scenario: Not inputting anything for the password field
+  Scenario: Putting a invalid password
     Given I access the bbc login page
-    And I input incorrect username details
-    And I input password details that are short in character length
+    And I input username details
+    And I input a invalid password
     When I try to login
-    Then I receive an error for the password being short
+    Then I receive an error message saying passwords invalid
 
 
 

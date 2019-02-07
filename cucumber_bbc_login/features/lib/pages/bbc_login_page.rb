@@ -3,8 +3,7 @@ require 'capybara/dsl'
 class BbcLoginPage
   include Capybara::DSL
 
-  attr_accessor :error
-  attr_accessor :short_password_error
+  attr_accessor :error, :short_password_error, :invalid_password_error
 
   # Page Objects
   LOGIN_PAGE_ID = 'idcta-link'.freeze
@@ -12,11 +11,11 @@ class BbcLoginPage
   PASSWORD_FIELD_ID = 'password-input'.freeze
   SIGN_IN_BUTTON_ID = 'submit-button'.freeze
   ERROR_MESSAGE_CLASS = '.form-message__text'.freeze
-  SHORT_ERROR_MESSAGE_CLASS = '.form-message'.freeze
 
   def initialize
     @error = 'Sorry, we can’t find an account with that email. You can register for a new account or get help here.'
     @short_password_error = 'Sorry, that password is too short. It needs to be eight characters or more.'
+    @invalid_password_error = "Sorry, that password isn't valid. Please include something that isn't a letter."
   end
 
   def visit_login_page
@@ -37,9 +36,5 @@ class BbcLoginPage
 
   def error_message_box
     find(:css, ERROR_MESSAGE_CLASS).text
-  end
-
-  def short_error_message_box
-    find(:css, SHORT_ERROR_MESSAGE_CLASS).text
   end
 end
