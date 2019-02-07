@@ -21,6 +21,15 @@ Feature: BBC Login
     When I try to login
     Then I receive an error message saying passwords invalid
 
+  Scenario: Account details not matching with database
+    Given I access the bbc login page
+    And I input incorrect username details
+    And I input incorrect password
+    When I try to login
+    Then I receive a message saying details not matching
+
+
+
 
 
     
