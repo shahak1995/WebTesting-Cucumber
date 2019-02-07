@@ -47,3 +47,11 @@ end
 Then("I receive a message saying password is invalid put letters") do
   expect(@bbc_site.bbc_login_page.error_message_box).to eq @bbc_site.bbc_login_page.invalid_password_error_two
 end
+
+Given("I input invalid username details") do
+  @bbc_site.bbc_login_page.fill_in_email_username_field('apple1987')
+end
+
+Then("I receive a message saying username is invalid") do
+  expect(@bbc_site.bbc_login_page.error_message_box).to eq @bbc_site.bbc_login_page.invalid_username_error
+end

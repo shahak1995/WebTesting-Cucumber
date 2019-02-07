@@ -28,6 +28,13 @@ Feature: BBC Login
     When I try to login
     Then I receive a message saying password is invalid put letters
 
+  Scenario: Putting a invalid username
+    Given I access the bbc login page
+    And I input invalid username details
+    And I input incorrect password details
+    When I try to login
+    Then I receive a message saying username is invalid
+
 
 
 
