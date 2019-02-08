@@ -1,5 +1,6 @@
 require_relative 'pages/bbc_homepage'
 
+# super class
 class BbcSite
   def bbc_homepage
     BbcHomepage.new

@@ -17,7 +17,7 @@ When("I try to login") do
 end
 
 Then("I receive an error for not finding the account") do
-  expect(@bbc_site.bbc_login_page.error_message_box).to eq @bbc_site.bbc_login_page.error
+  expect(@bbc_site.bbc_login_page.error_message_box).to eq @bbc_site.bbc_login_page.account_missing_error
 end
 
 Given("I input password details that are short in character length") do
