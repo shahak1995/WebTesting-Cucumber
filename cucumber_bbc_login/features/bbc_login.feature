@@ -34,11 +34,3 @@ Feature: BBC Login
     And I input incorrect password details
     When I try to login
     Then I receive a message saying username is invalid
-
- 
-
-
-
-
-
-    
